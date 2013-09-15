@@ -7,6 +7,7 @@
 //
 
 #import "You_TodayAppDelegate.h"
+#import "TodayViewController.h"
 
 @implementation You_TodayAppDelegate
 
@@ -17,8 +18,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    TodayViewController *viewController = [[TodayViewController alloc] initWithNibName:@"TodayView" bundle:nil];
+    UINavigationController *navControl = [[UINavigationController alloc] initWithRootViewController:viewController];
+    UIColor *orangeColor = [UIColor colorWithRed:255/255.0f green:145/255.0f blue:0/255.0f alpha:1.0];
+    
+
+    [navControl.navigationBar setTintColor:orangeColor];
+    //[bar setTintColor:[UIColor [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0]]];
+    //navControl.navigationBar.tintColor = 
+    [[self window] setRootViewController:navControl];
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
+    [viewController release];
+    [navControl release];
     return YES;
 }
 
